@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>react-toastline test</title>
+    <link rel="stylesheet" href="./dist/styles.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <button id="success-btn">Success toast</button>
+    <button id="error-btn">Persistent error</button>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18",
+          "react-dom/client": "https://esm.sh/react-dom@18/client"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import React from 'react';
+      import { createRoot } from 'react-dom/client';
+      import { ToastProvider, toast } from './dist/index.js';
+
+      const root = createRoot(document.getElementById('root'));
+      root.render(React.createElement(ToastProvider, { position: 'bottom-right' }));
+
+      document.getElementById('success-btn').addEventListener('click', () => {
+        toast.success('It works!');
+      });
+
+      document.getElementById('error-btn').addEventListener('click', () => {
+        toast.error('Something broke', { duration: 0 });
+      });
+    </script>
+  </body>
+</html>
