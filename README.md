@@ -135,14 +135,6 @@ npm test
 npm run build
 ```
 
-## Publishing this package yourself
-
-1. Update the `name`, `author`, and `repository` fields in `package.json` (the name must be unique on npm — check with `npm view <name>`).
-2. `npm login`
-3. `npm publish` (the `prepublishOnly` script runs typecheck + tests + build automatically)
-
-To publish under a scope (e.g. `@yourname/react-toastline`) without making it private, keep `"publishConfig": { "access": "public" }` in `package.json`.
-
 ## License
 
 MIT
